@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+apply from: project.getRootProjectPath() + "/common_android.gradle"
+apply from: project.getRootProjectPath() + "/common_kapt.gradle"
+
+dependencies {
+    api project(':lib-resource')
+    kapt libs.component_compiler
+    api libs.kotlin_stdlib
+    api libs.kotlin_android
+    api libs.kt_coroutines_core
+    api libs.kt_coroutines_rx2
+    api libs.core_ktx
+    api libs.fragment_ktx
+    api libs.appcompat
+    api libs.swiperefreshlayout
+    api libs.material
+    api libs.drawerlayout
+    api libs.constraintlayout
+    api libs.lifecycle_runtime_ktx
+    api libs.lifecycle_viewmodel_ktx
+    api libs.component_impl_ktx
+    api libs.support_init
+    api libs.support_annotation
+    api libs.support_ktx
+    api libs.support_download
+    api libs.support_architecture
+    api libs.rxKotlin
+    api libs.gson
+    api libs.retrofit
+    api libs.retrofit_converter_gson
+    api libs.baseAdapter
+    api libs.glide
+    api libs.lottie_compose
+    api libs.coil_compose
+    api libs.kotlin_flow_extensions
+
+    api libs.page3
+    api libs.page3_compose
+
+    api libs.room
+    api libs.room_ktx
+    api libs.room_rxjava
+    kapt libs.room_compiler
+
+    // compose
+    api libs.activity_compose
+    api libs.compose_viewmodel
+
+    api libs.accompanist_insets
+    api libs.accompanist_pager
+    api libs.accompanist_swiperefresh
+    api libs.accompanist_sysuicontrol
+    api libs.accompanist_flowlayout
+
+    api libs.compose_ui
+    api libs.compose_material
+    api libs.compose_ui_tooling
+    api libs.compose_ui_tooling_preview
+    api libs.compose_constraintlayout
+
+
+}

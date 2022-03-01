@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiaojinzi.tally.my">
+
+    <application>
+        <activity
+            android:name=".module.setting.view.SettingAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.setting.view.AboutAct"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

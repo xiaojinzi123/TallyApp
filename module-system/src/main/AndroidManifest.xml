@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiaojinzi.module.system">
+
+    <application>
+        <!--android:screenOrientation="portrait" 这一行是不可以写的 -->
+        <activity
+            android:name=".module.datetime.view.YearSelectAct"
+            android:theme="@style/Theme.AppTheme.Translucent" />
+        <!--android:screenOrientation="portrait" 这一行是不可以写的 -->
+        <activity
+            android:name=".module.datetime.view.DateTimePickerAct"
+            android:theme="@style/Theme.AppTheme.Translucent" />
+    </application>
+
+</manifest>

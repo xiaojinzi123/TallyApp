@@ -1,0 +1,8 @@
+apply from: project.getRootProjectPath() + "/common_android.gradle"
+apply from: project.getRootProjectPath() + "/common_kapt.gradle"
+
+dependencies {
+    api project(':app-tally:module-base')
+    kapt libs.component_compiler
+    kapt libs.room_compiler
+}

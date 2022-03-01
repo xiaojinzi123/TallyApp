@@ -1,0 +1,56 @@
+apply from: "coreProperties.gradle"
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven { url 'https://jitpack.io' }
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+
+boolean isTallyOpenSourceProject = commonProperties.isTallyOpenSourceProject
+
+if (isTallyOpenSourceProject) {
+    rootProject.name = "TallyApp"
+} else {
+    rootProject.name = "ModuleApps"
+}
+
+if (!isTallyOpenSourceProject) {
+
+    include ':app-demo:app'
+
+    include ':app-wp:app'
+    include ':app-wp:module-home'
+    include ':app-wp:module-base'
+
+}
+
+
+
+include ':app-tally:app'
+include ':app-tally:module-develop'
+include ':app-tally:module-statistical'
+include ':app-tally:module-loading'
+include ':app-tally:module-account'
+include ':app-tally:module-bill'
+include ':app-tally:module-my'
+include ':app-tally:module-home'
+include ':app-tally:module-datasource'
+include ':app-tally:module-base'
+
+if (!isTallyOpenSourceProject) {
+    include ':module-firebase'
+}
+include ':module-bugly'
+include ':module-develop'
+include ':module-support'
+include ':module-system:'
+include ':module-base'
+
+include ':lib-resource'
+
+include ':app-tally:module-bill-auto'
+include ':module-image-upload'

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <item
+    tools:height="800dp"
+    tools:width="420dp">
+    <color android:color="#F4F6F8" />
+  </item>
+
+  <item
+    android:gravity="center"
+    android:top="-120dp">
+    <bitmap
+      android:gravity="center_horizontal|bottom"
+      android:src="@drawable/loading_boot_bg1" />
+  </item>
+
+</layer-list>

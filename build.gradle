@@ -1,0 +1,40 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: "common_support.gradle"
+buildscript {
+    apply from: "coreProperties.gradle"
+    ext {
+        compose_version = '1.0.1'
+    }
+    ext.kotlin_version = "1.5.21"
+    ext.kotlin_coroutines_version = "1.4.3"
+    apply from: "dependencies.gradle"
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        // classpath "com.android.tools.build:gradle:4.2.2"
+        classpath 'com.android.tools.build:gradle:7.1.2'
+        // googel service
+        classpath 'com.google.gms:google-services:4.3.10'
+        // 2.0.0 or later if you built your app with Android Studio 4.1).
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // 组件化的
+        classpath libs.component_plugin
+    }
+}
+
+/*allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+        maven { url 'https://jitpack.io' }
+    }
+}*/
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

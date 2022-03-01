@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiaojinzi.tally.bill">
+
+    <application>
+        <service android:name=".ipc.BillService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.xiaojinzi.tally.bill.ipc.BillService" />
+            </intent-filter>
+        </service>
+        <activity
+            android:name=".module.bill_auto.view.BillAutoAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.bill_auto_create.view.AutoBillCreateAct"
+            android:theme="@style/ModuleBillAuto.AutoBillCreate" />
+        <activity
+            android:name=".module.category.view.BillCategoryAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.cate_create.view.CateCreateAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.cate_group_create.view.CateGroupCreateAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.bill_create.view.BillCreateAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.detail.view.BillDetailAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.search.view.BillSearchAct"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".module.monthly_list.view.MonthlyBillListAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.cate_group_bill_list.view.CateGroupBillAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.label_list.view.LabelBillListAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.book.view.BillBookAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.book_create.view.BookCreateAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.book_detail.view.BookDetailAct"
+            android:screenOrientation="portrait" />
+        <!--这个透明主题不需要配置屏幕朝向-->
+        <activity
+            android:name=".module.book_select.view.BillBookSelectAct"
+            android:theme="@style/ModuleBill.BillBookSelect" />
+        <activity
+            android:name=".module.bill_auto_default_account.view.BillAutoDefaultAccountAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.bill_auto_default_category.view.BillAutoDefaultCategoryAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.budget.view.BudgetAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.sub_reimbursement_bill_list.view.SubReimbursementBillListAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.cycle_bill.view.CycleBillAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.cycle_bill_task.view.CycleBillTaskAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.cycle_bill_create.view.CycleBillCreateAct"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

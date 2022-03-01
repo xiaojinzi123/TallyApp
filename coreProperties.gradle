@@ -1,0 +1,10 @@
+ext.commonProperties = [
+        isOpenSourceProject: true,
+        buglyAppkey: "xxxxx",
+        giteeToken: "xxxxxxxxxxxxxxxxxxx",
+        githubUserName: "xxxxxxxxxxxxxx",
+        githubToken: "xxxxxxxxxxxxxxxxxxxxxxx",
+        storePassword_tally: "123456",
+        keyAlias_tally: "123456",
+        keyPassword_tally: "123456",
+]

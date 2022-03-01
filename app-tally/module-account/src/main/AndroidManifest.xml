@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiaojinzi.tally.account">
+
+    <application>
+
+        <activity
+            android:name=".module.main.view.AccountAct"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".module.create.view.AccountCreateAct"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".module.detail.view.AccountDetailAct"
+            android:screenOrientation="portrait"/>
+        <!--这个透明主题不需要配置屏幕朝向-->
+        <activity
+            android:name=".module.select.view.AccountSelectAct"
+            android:theme="@style/Account.AccountSelect"/>
+    </application>
+
+</manifest>

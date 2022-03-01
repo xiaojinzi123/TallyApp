@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="res_icon_bg1">#8e8d92</color>
+    <color name="res_icon_bg1_selected">#1e82e4</color>
+</resources>

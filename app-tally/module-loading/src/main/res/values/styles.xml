@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ModuleLoading" parent="Theme.AppTheme.Tally" />
+
+    <style name="ModuleLoading.boot">
+        <!--<item name="android:windowBackground">@drawable/loading_boot_bg1</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">#00000000</item>-->
+    </style>
+
+</resources>

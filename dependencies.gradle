@@ -1,0 +1,86 @@
+ext.versions = [
+        // 系统级别的版本号
+        android_compile_sdk                 : 32,
+        android_min_sdk                     : 21,
+        android_target_sdk                  : 32,
+        // buildToolsVersion                : "31.0.0",
+        // 第三方控件的版本号
+        rxjava                              : '2.2.21',
+        rxandroid                           : "2.1.1",
+        component_version                   : "v2.0.0-beta7",
+        support_version                     : "v1.0-beta36",
+        compose_version                     : "1.2.0-alpha01",
+        accompanist_version                 : "0.19.0",
+        page3                               : "3.1.0",
+]
+
+ext.libs = [
+        kotlin_stdlib               : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+        kotlin_android              : "org.jetbrains.kotlin:kotlin-android-extensions-runtime:$kotlin_version",
+        kt_coroutines_core          : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version",
+        kt_coroutines_rx2           : "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$kotlin_coroutines_version",
+        // Google 提供的
+        appcompat                   : 'androidx.appcompat:appcompat:1.4.1',
+        core_ktx                    : 'androidx.core:core-ktx:1.7.0',
+        swiperefreshlayout          : "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0",
+        fragment_ktx                : "androidx.fragment:fragment-ktx:1.4.0",
+        material                    : 'com.google.android.material:material:1.5.0',
+        drawerlayout                : "androidx.drawerlayout:drawerlayout:1.1.1",
+        constraintlayout            : 'androidx.constraintlayout:constraintlayout:2.1.2',
+        lifecycle_viewmodel_ktx     : "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0",
+        lifecycle_runtime_ktx       : "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0",
+        gson                        : "com.google.code.gson:gson:2.9.0",
+        retrofit                    : "com.squareup.retrofit2:retrofit:2.9.0",
+        retrofit_converter_gson     : "com.squareup.retrofit2:converter-gson:2.9.0",
+        support_init                : "com.github.xiaojinzi123.AndroidSupport:lib-init:${versions.support_version}",
+        support_annotation          : "com.github.xiaojinzi123.AndroidSupport:lib-annotation:${versions.support_version}",
+        support_download            : "com.github.xiaojinzi123.AndroidSupport:lib-download:${versions.support_version}",
+        support_ktx                 : "com.github.xiaojinzi123.AndroidSupport:lib-ktx:${versions.support_version}",
+        support_architecture        : "com.github.xiaojinzi123.AndroidSupport:lib-architecture:${versions.support_version}",
+        rxKotlin                    : "io.reactivex.rxjava2:rxkotlin:2.4.0",
+        leakcanary                  : 'com.squareup.leakcanary:leakcanary-android:2.8.1',
+        kotlin_flow_extensions      : "com.github.akarnokd:kotlin-flow-extensions:0.0.14",
+
+        baseAdapter                 : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4',
+        glide                       : 'com.github.bumptech.glide:glide:4.12.0',
+        glide_compiler              : 'com.github.bumptech.glide:compiler:4.12.0',
+        lottie                      : 'com.airbnb.android:lottie:4.2.2',
+        lottie_compose              : "com.airbnb.android:lottie-compose:4.2.2",
+        coil_compose                : "io.coil-kt:coil-compose:1.4.0",
+
+        // page 的依赖
+        page3                       : "androidx.paging:paging-runtime:${versions.page3}",
+        page3_compose               : "androidx.paging:paging-compose:1.0.0-alpha14",
+
+        // ------------------------ Room 的依赖------------------------
+        room                        : "androidx.room:room-runtime:2.4.1",
+        room_compiler               : "androidx.room:room-compiler:2.4.1",
+        room_ktx                    : "androidx.room:room-ktx:2.4.1",
+        room_rxjava                 : "androidx.room:room-rxjava2:2.4.1",
+
+        // ------------------------ Compose 的依赖  ------------------------
+
+        accompanist_pager           : "com.google.accompanist:accompanist-pager:${versions.accompanist_version}",
+        accompanist_swiperefresh    : "com.google.accompanist:accompanist-swiperefresh:${versions.accompanist_version}",
+        accompanist_insets          : "com.google.accompanist:accompanist-insets:${versions.accompanist_version}",
+        accompanist_sysuicontrol    : "com.google.accompanist:accompanist-systemuicontroller:${versions.accompanist_version}",
+        accompanist_flowlayout      : "com.google.accompanist:accompanist-flowlayout:${versions.accompanist_version}",
+
+        compose_viewmodel           : 'androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0',
+        activity_compose            : 'androidx.activity:activity-compose:1.4.0',
+        compose_ui                  : "androidx.compose.ui:ui:${versions.compose_version}",
+        compose_material            : "androidx.compose.material:material:${versions.compose_version}",
+        compose_ui_tooling          : "androidx.compose.ui:ui-tooling:${versions.compose_version}",
+        compose_ui_tooling_preview  : "androidx.compose.ui:ui-tooling-preview:${versions.compose_version}",
+        compose_ui_foundation       : 'androidx.ui:ui-foundation:0.1.0-dev14',
+        compose_constraintlayout    : "androidx.constraintlayout:constraintlayout-compose:1.0.0-rc02",
+
+        component_plugin            : "com.github.xiaojinzi123.Component:component-plugin:${versions.component_version}",
+        component_annotation        : "com.github.xiaojinzi123.Component:component-annotation:${versions.component_version}",
+        component_compiler          : "com.github.xiaojinzi123.Component:component-compiler:${versions.component_version}",
+        component_impl              : "com.github.xiaojinzi123.Component:component-impl:${versions.component_version}",
+        component_impl_rx           : "com.github.xiaojinzi123.Component:component-impl-rx:${versions.component_version}",
+        component_impl_ktx          : "com.github.xiaojinzi123.Component:component-impl-ktx:${versions.component_version}",
+
+]
+

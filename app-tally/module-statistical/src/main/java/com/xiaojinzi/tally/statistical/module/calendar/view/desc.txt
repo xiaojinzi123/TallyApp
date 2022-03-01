@@ -1,0 +1,20 @@
+
+offset 解释：用户每次滑动累计产生的偏移
+PAGE_COUNT = 3
+
+offset              pageIndexDate               pageIndex
+2                   12, 13, 11                  0
+1                   12, 10, 11                  2
+0                   9, 10, 11                   1
+-1                  9, 10, 8                    0
+-2                  9, 7, 8                     2
+-3                  6, 7, 8,                    1
+-4                  6, 7, 5                     0
+
+
+如果 offset 为 0, 那么每一个 pageIndex 位置的数据的偏移就是：
+    pageIndex - 1
+如果 offset > 0, 那么每一个 pageIndex 位置的数据的偏移就是：
+    ((offset + 2 - pageIndex) / PAGE_COUNT) * PAGE_COUNT + pageIndex - 1
+如果 offset < 0, 那么每一个 pageIndex 位置的数据的偏移就是：
+    ((offset - pageIndex) / PAGE_COUNT) * PAGE_COUNT + pageIndex - 1

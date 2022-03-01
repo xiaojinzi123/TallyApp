@@ -1,0 +1,11 @@
+kapt {
+    arguments {
+        def tempProject = project
+        def name = tempProject.getName()
+        while (tempProject.parent != null) {
+            tempProject = tempProject.parent
+            name = tempProject.getName() + "_" + name
+        }
+        arg("HOST", name)
+    }
+}

@@ -1,0 +1,12 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+apply from: "../module.gradle"
+
+dependencies {
+    api 'com.tencent.bugly:crashreport:latest.release'
+}

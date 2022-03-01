@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiaojinzi.tally.develop">
+
+    <application>
+        <activity
+            android:name=".module.data_statistical.view.DataStatisticalAct"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

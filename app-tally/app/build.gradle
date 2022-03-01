@@ -1,0 +1,124 @@
+plugins {
+    id 'com.android.application'
+    id 'com.xiaojinzi.component.plugin'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+apply from: project.getRootProjectPath() + "/common_android.gradle"
+apply from: project.getRootProjectPath() + "/common_kapt.gradle"
+
+android {
+    signingConfigs {
+        debug {
+            storeFile file('../sign')
+            storePassword "${commonProperties.storePassword_tally}"
+            keyAlias "${commonProperties.keyAlias_tally}"
+            keyPassword "${commonProperties.keyPassword_tally}"
+        }
+        release {
+            storeFile file('../sign')
+            storePassword "${commonProperties.storePassword_tally}"
+            keyAlias "${commonProperties.keyAlias_tally}"
+            keyPassword "${commonProperties.keyPassword_tally}"
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.xiaojinzi.tally"
+        versionCode 15
+        versionName "1.2.11"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions 'package', 'product', "bugly", "testData"
+    productFlavors {
+        normal {
+            dimension 'package'
+            manifestPlaceholders = [appName:"@string/res_tally_app_name"]
+        }
+        self {
+            dimension 'package'
+            applicationIdSuffix ".self"
+            manifestPlaceholders = [appName:"@string/res_tally_app_name_self"]
+        }
+        // ----------------------- 产品渠道 start-----------------------
+        kuan {
+            dimension 'product'
+            buildConfigField "int", "imageType", "1"
+            buildConfigField "boolean", "autoBill", "true"
+            buildConfigField "String", "buglyAppkey", "\"${commonProperties.buglyAppkey}\""
+            buildConfigField "int", "appChannel", "1"
+        }
+        gp {
+            dimension 'product'
+            buildConfigField "int", "imageType", "2"
+            buildConfigField "boolean", "autoBill", "false"
+            buildConfigField "String", "buglyAppkey", "\"\""
+            buildConfigField "int", "appChannel", "2"
+        }
+        // 新增一个就得在代码中也新增一个
+        // ----------------------- 产品渠道 End-----------------------
+        // ----------------------- bugly start-----------------------
+        noBugly {
+            dimension 'bugly'
+            buildConfigField "boolean", "bugly", "false"
+        }
+        haveBugly {
+            dimension 'bugly'
+            buildConfigField "boolean", "bugly", "true"
+        }
+        // ----------------------- bugly end-----------------------
+        // ----------------------- 测试数据 start-----------------------
+        noTestData {
+            dimension 'testData'
+            buildConfigField "boolean", "insertTestData", "false"
+        }
+        haveTestData {
+            dimension 'testData'
+            buildConfigField "boolean", "insertTestData", "true"
+        }
+        // ----------------------- 测试数据 end-----------------------
+    }
+
+}
+
+dependencies {
+
+    api project(':module-image-upload')
+    api project(':module-system')
+    api project(':module-support')
+
+    // 可选的模块
+    kuanApi project(':module-bugly')
+    kuanApi project(':app-tally:module-bill-auto')
+
+    // 业务模块
+    api project(':app-tally:module-loading')
+    api project(':app-tally:module-home')
+    api project(':app-tally:module-my')
+    api project(':app-tally:module-account')
+    api project(':app-tally:module-bill')
+    api project(':app-tally:module-datasource')
+    api project(':app-tally:module-statistical')
+    api project(':app-tally:module-base')
+
+    debugApi libs.leakcanary
+    debugApi project(':module-develop')
+    debugApi project(':app-tally:module-develop')
+
+    kapt libs.component_compiler
+
+}
