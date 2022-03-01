@@ -1,5 +1,5 @@
 ext.commonProperties = [
-        isOpenSourceProject: true,
+        isOpenSourceProject: true, // 这个不可修改!!!
         buglyAppkey: "xxxxx",
         giteeToken: "xxxxxxxxxxxxxxxxxxx",
         githubUserName: "xxxxxxxxxxxxxx",

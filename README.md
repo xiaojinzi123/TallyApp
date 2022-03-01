@@ -2,6 +2,8 @@
 
 此 App 是线上运行的一个 App. 扣去了隐私的数据部分. 代码会隔一段时间更新一回. 不会随着线上的版本实时更新. 还望理解!!!
 
+如果你想成为我的记账用户, 也十分欢迎加入我的 QQ 群. 二维码在最后
+
 ## 效果图
 
 <img src="./app-tally/document/appImgs/1_1_0/img_1.png" width="200" /><img src="./app-tally/document/appImgs/1_1_0/img_2.png" width="200" /><img src="./app-tally/document/appImgs/1_1_0/img_3.png" width="200" /><img src="./app-tally/document/appImgs/1_1_0/img_4.png" width="200" /><img src="./app-tally/document/appImgs/1_1_0/img_5.png" width="200" />
@@ -30,6 +32,10 @@
 
 <img src="https://s2.loli.net/2022/03/02/QNcOB32d5alZgUW.png" style="zoom:80%;" />
 
+### 启用图片功能
+由于图片使用的 Token 是我自己的. 如果你想运行的时候, 图片功能是好使的. 请打开项目根目录的 coreProperties.gradle 文件
+将其中的 Gitee 或者 Github 的相关信息替换成自己的 Token 即可
+
 ## 技术支持
 
 1. [Component](https://github.com/xiaojinzi123/Component) 组件化框架(非常重要!!!!!)
@@ -47,3 +53,7 @@
 记账的签名文件的信息, 填写的都是：123456
 
 ![](https://s2.loli.net/2022/03/02/Yz1hocrHnqeJMRI.png)
+
+## 加群
+
+<img src="https://s2.loli.net/2022/03/02/TWGC7vUxtmJcg16.jpg" />
