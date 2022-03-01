@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="11" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app-demo" />
+            <option value="$PROJECT_DIR$/app-demo/app" />
+            <option value="$PROJECT_DIR$/app-tally" />
+            <option value="$PROJECT_DIR$/app-tally/app" />
+            <option value="$PROJECT_DIR$/app-tally/module-account" />
+            <option value="$PROJECT_DIR$/app-tally/module-base" />
+            <option value="$PROJECT_DIR$/app-tally/module-bill" />
+            <option value="$PROJECT_DIR$/app-tally/module-bill-auto" />
+            <option value="$PROJECT_DIR$/app-tally/module-datasource" />
+            <option value="$PROJECT_DIR$/app-tally/module-develop" />
+            <option value="$PROJECT_DIR$/app-tally/module-home" />
+            <option value="$PROJECT_DIR$/app-tally/module-loading" />
+            <option value="$PROJECT_DIR$/app-tally/module-my" />
+            <option value="$PROJECT_DIR$/app-tally/module-statistical" />
+            <option value="$PROJECT_DIR$/app-wp" />
+            <option value="$PROJECT_DIR$/app-wp/app" />
+            <option value="$PROJECT_DIR$/app-wp/module-base" />
+            <option value="$PROJECT_DIR$/app-wp/module-home" />
+            <option value="$PROJECT_DIR$/lib-resource" />
+            <option value="$PROJECT_DIR$/module-base" />
+            <option value="$PROJECT_DIR$/module-bugly" />
+            <option value="$PROJECT_DIR$/module-develop" />
+            <option value="$PROJECT_DIR$/module-firebase" />
+            <option value="$PROJECT_DIR$/module-image-upload" />
+            <option value="$PROJECT_DIR$/module-support" />
+            <option value="$PROJECT_DIR$/module-system" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
