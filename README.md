@@ -1,3 +1,6 @@
+## 更新日志
+[changelog](./app-tally/changelog.md)
+
 ## 前言
 
 项目实施了组件化. 技术由 [Component](https://github.com/xiaojinzi123/Component) 支持
