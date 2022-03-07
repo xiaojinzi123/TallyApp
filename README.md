@@ -16,6 +16,11 @@
 
 ## 运行须知
 
+### Android Studio
+需要使用支持 Compose 的 Android Studio
+而项目中作者基本会及时更新 as, 并且升级 AGP 插件, 所以基本上 Android Studio 需要是最新的. 还望须知
+你电脑上下载一个最新的 Android Studio, 不会影响旧的 Android Studio
+
 ### 渠道和功能配置
 
 项目打开之后, 请选择合适的打包渠道和配置
