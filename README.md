@@ -63,7 +63,3 @@
 记账的签名文件的信息, 填写的都是：123456
 
 ![](https://s2.loli.net/2022/03/02/Yz1hocrHnqeJMRI.png)
-
-## 加群
-
-<img src="https://s2.loli.net/2022/03/02/TWGC7vUxtmJcg16.jpg" />
