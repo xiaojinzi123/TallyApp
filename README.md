@@ -15,7 +15,7 @@
 
 ## 欢迎下载体验
 
-应用市场下载地址：https://www.coolapk.com/apk/290179
+https://github.com/xiaojinzi123/TallyApp/releases
 
 ## 运行须知
 
