@@ -8,6 +8,7 @@ import com.xiaojinzi.support.architecture.mvvm1.BaseAct
 import com.xiaojinzi.support.architecture.mvvm1.BaseViewModel
 import com.xiaojinzi.support.architecture.mvvm1.TipBean
 import com.xiaojinzi.support.ktx.app
+import com.xiaojinzi.support.ktx.contentWithContext
 
 open class BaseActivity<VM : BaseViewModel> : BaseAct<VM>() {
 
@@ -21,14 +22,7 @@ open class BaseActivity<VM : BaseViewModel> : BaseAct<VM>() {
     }
 
     override fun onTip(content: TipBean) {
-        val content = if (content.contentResId != null && content.contentResId != 0) {
-            this.getString(content.contentResId!!)
-        } else {
-            content.content
-        }
-        if (!content.isNullOrEmpty()) {
-            Toast.makeText(app, content, Toast.LENGTH_SHORT).show()
-        }
+        Toast.makeText(app, content.content.contentWithContext(), Toast.LENGTH_SHORT).show()
     }
 
     override fun showLoading(isShow: Boolean) {

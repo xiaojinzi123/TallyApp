@@ -34,7 +34,7 @@ import com.xiaojinzi.module.base.RouterConfig
 import com.xiaojinzi.module.base.theme.Yellow500
 import com.xiaojinzi.module.base.theme.Yellow700
 import com.xiaojinzi.support.ktx.nothing
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.TallyRouterConfig
 import com.xiaojinzi.tally.base.service.TabType
 import com.xiaojinzi.tally.base.support.TallyLogKeyword

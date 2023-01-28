@@ -1,5 +1,6 @@
 package com.xiaojinzi.tally.bill.module.detail.view
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CornerSize
@@ -194,6 +195,7 @@ fun BillDetailView(
                         }
                     }
                 }
+                else -> {}
             }
 
             when (vo.billType) {
@@ -329,6 +331,7 @@ fun BillDetailView(
                     }
                     Spacer(modifier = Modifier.width(width = 2.dp))
                 }
+                else -> {}
             }
             Button(
                 shape = MaterialTheme.shapes.small.copy(all = CornerSize(size = 0.dp)),
@@ -358,6 +361,7 @@ fun BillDetailView(
 
 }
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun BillDetailViewWrap() {
     val vm: BillDetailViewModel = viewModel()

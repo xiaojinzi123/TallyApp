@@ -21,7 +21,7 @@ import com.xiaojinzi.support.init.AppInstance
 import com.xiaojinzi.support.ktx.ErrorIgnoreContext
 import com.xiaojinzi.support.ktx.app
 import com.xiaojinzi.support.ktx.newUUid
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.TallyRouterConfig
 import com.xiaojinzi.tally.base.service.DialogConfirmResult
 import com.xiaojinzi.tally.base.service.datasource.*
@@ -576,6 +576,7 @@ class BillCreateUseCaseImpl(
                             }
                         }
                     }
+
                     BillCreateTabType.Transfer -> {
                         if (selectInTransferAccount == null || selectOutTransferAccount == null) {
                             R.string.res_str_err_tip5
@@ -715,11 +716,13 @@ class BillCreateUseCaseImpl(
                         uid = billCreateReimbursementUseCase.reimbursementBillInitDataObservableDTO.value!!.bill.accountId
                     )!!
                 }
+
                 isTransfer -> {
                     tallyAccountService.getByUid(
                         uid = billCreateTransferUseCase.selectedOutAccountObservableDTO.value!!.uid
                     )!!
                 }
+
                 else -> {
                     if (accountId == null) {
                         tallyAccountService.getDefaultAccount()
@@ -736,6 +739,7 @@ class BillCreateUseCaseImpl(
                         uid = billCreateTransferUseCase.selectedInAccountObservableDTO.value!!.uid
                     )!!
                 }
+
                 else -> {
                     null
                 }
@@ -747,6 +751,7 @@ class BillCreateUseCaseImpl(
                         uid = billCreateReimbursementUseCase.reimbursementBillInitDataObservableDTO.value!!.bill.bookId
                     )
                 }
+
                 else -> {
                     if (bookId == null) {
                         tallyBookService.getDefaultBook()
@@ -765,6 +770,7 @@ class BillCreateUseCaseImpl(
                 isReimbursementType -> {
                     cost
                 }
+
                 else -> {
                     when (costTypeInitData.value) {
                         CostType.Relative -> {
@@ -774,6 +780,7 @@ class BillCreateUseCaseImpl(
                                 cost
                             }
                         }
+
                         CostType.Absolute -> {
                             cost
                         }
@@ -786,11 +793,13 @@ class BillCreateUseCaseImpl(
                 isReimbursementType -> {
                     Assert.assertNotNull(value = billCreateReimbursementUseCase.reimbursementBillInitDataObservableDTO.value)
                 }
+
                 isTransfer -> {
                     // 转账这个值不需要
                     category = null
                     Assert.assertNotNull(value = transferTargetAccount)
                 }
+
                 else -> {
                     // 普通记账不需要这个字段
                     transferTargetAccount = null
@@ -849,9 +858,11 @@ class BillCreateUseCaseImpl(
                 isTransfer -> {
                     TallyBillTypeDTO.Transfer
                 }
+
                 isReimbursementType -> {
                     TallyBillTypeDTO.Reimbursement
                 }
+
                 else -> {
                     TallyBillTypeDTO.Normal
                 }
@@ -1076,8 +1087,9 @@ class BillCreateUseCaseImpl(
     }
 
     override fun deleteImage(uid: String) {
-        selectedImageObservableDTO.value = selectedImageObservableDTO.value
-            ?.filter {
+        selectedImageObservableDTO.value = selectedImageObservableDTO
+            .value
+            .filter {
                 it.uid != uid
             }
     }
@@ -1240,6 +1252,7 @@ class BillCreateUseCaseImpl(
                         accountInitData.value = null
                         billCreateReimbursementUseCase.reimbursementBillIdInitData.value = null
                     }
+
                     TallyBillTypeDTO.Normal, TallyBillTypeDTO.Reimbursement -> {
                         when (billDetail.bill.type) {
                             TallyBillTypeDTO.Reimbursement -> {
@@ -1249,6 +1262,7 @@ class BillCreateUseCaseImpl(
                                     -billDetail.bill.cost.tallyCostAdapter()
                                 isReimbursementTypeObservableDTO.value = true
                             }
+
                             else -> {
                                 billCreateReimbursementUseCase.reimbursementBillIdInitData.value =
                                     null
@@ -1275,6 +1289,7 @@ class BillCreateUseCaseImpl(
                             -billDetail.bill.cost.tallyCostAdapter()
                         }
                     }
+
                     TallyBillTypeDTO.Transfer -> -billDetail.bill.cost.tallyCostAdapter()
                     TallyBillTypeDTO.Reimbursement -> billDetail.bill.cost.tallyCostAdapter()
                 }

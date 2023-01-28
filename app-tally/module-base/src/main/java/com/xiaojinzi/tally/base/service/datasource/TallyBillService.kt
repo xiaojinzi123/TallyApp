@@ -218,6 +218,7 @@ open class TallyBillCommon(
                     TallyBillTypeDTO.Reimbursement -> {
                         Assert.assertNotEmptyString(value = reimburseBillId)
                     }
+                    else -> {}
                 }
             }
             TallyBillTypeDTO.Transfer -> {

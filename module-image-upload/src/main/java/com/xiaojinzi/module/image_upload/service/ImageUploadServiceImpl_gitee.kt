@@ -6,7 +6,7 @@ import com.xiaojinzi.module.base.service.ImageUploadBaseService
 import com.xiaojinzi.module.base.support.Counter
 import com.xiaojinzi.module.base.support.compressBitmap
 import com.xiaojinzi.module.image_upload.network.GiteeApi
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

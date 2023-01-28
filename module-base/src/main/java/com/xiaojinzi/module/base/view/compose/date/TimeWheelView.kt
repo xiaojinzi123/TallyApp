@@ -9,7 +9,7 @@ import com.xiaojinzi.module.base.support.LogKeyword
 import com.xiaojinzi.module.base.support.getHourByTimeStamp
 import com.xiaojinzi.module.base.support.getMinuteByTimeStamp
 import com.xiaojinzi.support.ktx.nothing
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import java.text.SimpleDateFormat
 import java.util.*
 

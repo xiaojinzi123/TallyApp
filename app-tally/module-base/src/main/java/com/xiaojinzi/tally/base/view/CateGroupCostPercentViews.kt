@@ -29,7 +29,7 @@ import com.xiaojinzi.module.base.bean.StringItemDTO
 import com.xiaojinzi.module.base.bean.toStringItemDTO
 import com.xiaojinzi.module.base.theme.Yellow900
 import com.xiaojinzi.support.ktx.nothing
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.R
 import com.xiaojinzi.tally.base.support.settingService
 import com.xiaojinzi.tally.base.support.tallyNumberFormat1

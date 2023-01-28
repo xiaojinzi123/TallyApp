@@ -15,7 +15,7 @@ import com.xiaojinzi.component.impl.service.ServiceManager
 import com.xiaojinzi.module.base.support.toTreeString
 import com.xiaojinzi.support.ktx.app
 import com.xiaojinzi.support.ktx.screenHeight
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.IBill
 import com.xiaojinzi.tally.base.TallyRouterConfig
 import com.xiaojinzi.tally.base.service.bill.BillParseResultDTO

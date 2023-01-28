@@ -3,7 +3,7 @@ package com.xiaojinzi.tally.datasource.service
 import androidx.paging.*
 import com.xiaojinzi.component.anno.ServiceAnno
 import com.xiaojinzi.module.base.support.getDayInterval
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.service.datasource.*
 import com.xiaojinzi.tally.datasource.data.toTallyBillDetailDTO
 import com.xiaojinzi.tally.datasource.db.BillDetailPageQueryType

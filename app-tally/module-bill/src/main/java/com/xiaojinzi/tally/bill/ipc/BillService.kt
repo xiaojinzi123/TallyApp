@@ -9,7 +9,7 @@ import com.xiaojinzi.component.ComponentActivityStack
 import com.xiaojinzi.component.impl.Router
 import com.xiaojinzi.lib.res.dto.AutoBillSourceAppType
 import com.xiaojinzi.lib.res.dto.AutoBillSourceViewType
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.IBill
 import com.xiaojinzi.tally.base.TallyRouterConfig
 import com.xiaojinzi.tally.base.service.datasource.TallyAccountDTO

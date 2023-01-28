@@ -1,7 +1,7 @@
 package com.xiaojinzi.module.base.theme
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.gestures.LocalOverScrollConfiguration
+import androidx.compose.foundation.LocalOverscrollConfiguration
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
@@ -45,7 +45,7 @@ fun CommonTheme(
         shapes = CommonShapes,
     ) {
         CompositionLocalProvider(
-            LocalOverScrollConfiguration provides null,
+            LocalOverscrollConfiguration.provides(value = null),
             content = content
         )
     }

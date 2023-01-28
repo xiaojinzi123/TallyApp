@@ -6,6 +6,7 @@ import com.xiaojinzi.support.architecture.mvvm1.BaseFrag
 import com.xiaojinzi.support.architecture.mvvm1.BaseViewModel
 import com.xiaojinzi.support.architecture.mvvm1.TipBean
 import com.xiaojinzi.support.ktx.app
+import com.xiaojinzi.support.ktx.contentWithContext
 
 open class
 BaseFragment<VM : BaseViewModel>(
@@ -17,7 +18,7 @@ BaseFragment<VM : BaseViewModel>(
     }
 
     override fun onTip(content: TipBean) {
-        Toast.makeText(app, content.content, Toast.LENGTH_SHORT).show()
+        Toast.makeText(app, content.content.contentWithContext(), Toast.LENGTH_SHORT).show()
     }
 
     override fun showLoading(isShow: Boolean) {

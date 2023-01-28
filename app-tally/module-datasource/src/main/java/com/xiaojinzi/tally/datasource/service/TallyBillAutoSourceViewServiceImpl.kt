@@ -1,7 +1,7 @@
 package com.xiaojinzi.tally.datasource.service
 
 import com.xiaojinzi.component.anno.ServiceAnno
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.service.datasource.TallyBillAutoSourceViewDTO
 import com.xiaojinzi.tally.base.service.datasource.TallyBillAutoSourceViewDetailDTO
 import com.xiaojinzi.tally.base.service.datasource.TallyBillAutoSourceViewInsertDTO

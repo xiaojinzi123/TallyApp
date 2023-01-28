@@ -16,7 +16,7 @@ import com.xiaojinzi.support.ktx.AppInitSupport
 import com.xiaojinzi.support.ktx.AppInitTask
 import com.xiaojinzi.support.ktx.AppScope
 import com.xiaojinzi.support.ktx.app
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.support.TallyTaskPriority
 import com.xiaojinzi.tally.base.support.tallyAppService
 import kotlinx.coroutines.Dispatchers

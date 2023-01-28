@@ -5,7 +5,7 @@ import com.xiaojinzi.component.anno.ServiceAnno
 import com.xiaojinzi.module.base.support.notSupportError
 import com.xiaojinzi.support.ktx.AppScope
 import com.xiaojinzi.support.ktx.ErrorIgnoreContext
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.service.datasource.TallyAccountDTO
 import com.xiaojinzi.tally.base.service.datasource.TallyAccountInsertDTO
 import com.xiaojinzi.tally.base.service.datasource.TallyAccountService

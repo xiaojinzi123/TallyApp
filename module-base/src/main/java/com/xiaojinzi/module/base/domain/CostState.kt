@@ -2,7 +2,7 @@ package com.xiaojinzi.module.base.domain
 
 import androidx.annotation.Keep
 import com.xiaojinzi.module.base.support.Assert
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 
 private const val TAG = "BillCostState"
 

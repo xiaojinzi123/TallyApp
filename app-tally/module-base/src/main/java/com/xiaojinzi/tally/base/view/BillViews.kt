@@ -565,9 +565,6 @@ private fun BillItemView(
                                 this.scale(scale = Scale.FILL)
                             }
                         )
-                        if (imagePainter.state is coil.compose.ImagePainter.State.Loading) {
-                        } else {
-                        }
                         Image(
                             painter = imagePainter,
                             contentDescription = null,

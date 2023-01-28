@@ -13,7 +13,7 @@ import com.xiaojinzi.support.annotation.HotObservable
 import com.xiaojinzi.support.architecture.mvvm1.BaseUseCase
 import com.xiaojinzi.support.architecture.mvvm1.BaseUseCaseImpl
 import com.xiaojinzi.support.ktx.ErrorIgnoreContext
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.TallyRouterConfig
 import com.xiaojinzi.tally.base.service.datasource.BillDetailDayDTO
 import com.xiaojinzi.tally.base.service.datasource.BillQueryConditionDTO

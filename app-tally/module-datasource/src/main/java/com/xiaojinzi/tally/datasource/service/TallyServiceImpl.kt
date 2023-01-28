@@ -12,7 +12,7 @@ import com.xiaojinzi.module.base.support.dbCommonService
 import com.xiaojinzi.module.base.support.flow.MutableSharedStateFlow
 import com.xiaojinzi.module.base.support.spService
 import com.xiaojinzi.support.ktx.AppScope
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.service.datasource.*
 import com.xiaojinzi.tally.base.support.*
 import com.xiaojinzi.tally.datasource.R

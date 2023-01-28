@@ -3,7 +3,7 @@ package com.xiaojinzi.tally.bill.auto.service.impl
 import android.view.accessibility.AccessibilityNodeInfo
 import com.xiaojinzi.component.anno.ServiceAnno
 import com.xiaojinzi.module.base.support.getRootParent
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.service.bill.BillParseResultDTO
 import com.xiaojinzi.tally.base.service.bill.BillParseService
 import com.xiaojinzi.tally.base.service.bill.ParseSourceType

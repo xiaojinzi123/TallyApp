@@ -21,7 +21,7 @@ import com.google.accompanist.insets.navigationBarsPadding
 import com.xiaojinzi.module.base.view.compose.BottomView
 import com.xiaojinzi.module.system.R
 import com.xiaojinzi.support.ktx.nothing
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 
 private const val TAG = "YearSelectViews"
 

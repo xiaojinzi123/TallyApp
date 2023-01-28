@@ -6,7 +6,7 @@ import androidx.sqlite.db.SupportSQLiteProgram
 import androidx.sqlite.db.SupportSQLiteQuery
 import com.xiaojinzi.module.base.support.generateUniqueStr
 import com.xiaojinzi.support.annotation.HotObservable
-import com.xiaojinzi.support.util.LogSupport
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.service.datasource.*
 import kotlinx.coroutines.flow.Flow
 
@@ -244,6 +244,7 @@ class SupportBillDetailPageQueryImpl(
             BillDetailPageQueryType.Cost, BillDetailPageQueryType.CostAdjust -> {
                 sb.append(" and isNotIncludedInIncomeAndExpenditure = 0")
             }
+            else -> {}
         }
         when (queryType) {
             BillDetailPageQueryType.DayTime -> {
@@ -254,6 +255,7 @@ class SupportBillDetailPageQueryImpl(
             BillDetailPageQueryType.Detail -> {
                 sb.append(" order by time desc")
             }
+            else -> {}
         }
         billQueryCondition.pageInfo?.let { pageInfo ->
             sb.append(" limit ${pageInfo.pageStartIndex}, ${pageInfo.pageSize}")
