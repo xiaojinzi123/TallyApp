@@ -349,4 +349,7 @@
     <string name="res_str_desc10">恭喜第一次记账成功</string>
     <!--描述的比较难翻译的文本 end-->
 
+    <string name="res_str_infer_bill_type">自动推断账单类别</string>
+    <string name="res_str_infer_bill_type_tips">根据历史记录推断账单类型</string>
+
 </resources>

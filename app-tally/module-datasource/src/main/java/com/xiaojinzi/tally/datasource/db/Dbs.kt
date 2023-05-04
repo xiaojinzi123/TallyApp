@@ -2,8 +2,6 @@ package com.xiaojinzi.tally.datasource.db
 
 import androidx.room.Room
 import com.xiaojinzi.support.ktx.app
-import com.xiaojinzi.support.ktx.newUUid
-import java.util.concurrent.atomic.AtomicInteger
 
 const val DATA_BASE_UPGRADE = "dataBaseUpgrade"
 
@@ -25,6 +23,7 @@ val totalTableNames = listOf(
     TallyLabelDao.TableName,
     TallyImageDao.TableName,
     TallyBudgetDao.TableName,
+    TallyBillStatDao.TableName,
 )
 
 val dbTally by lazy {
@@ -39,6 +38,7 @@ val dbTally by lazy {
             Migration3_4(),
             Migration4_5(),
             Migration5_6(),
+            Migration6_7(),
         )
         .fallbackToDestructiveMigration()
         .build()

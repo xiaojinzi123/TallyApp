@@ -75,3 +75,15 @@ class Migration5_6 : Migration(5, 6) {
     }
 
 }
+
+class Migration6_7 : Migration(6, 7) {
+    override fun migrate(database: SupportSQLiteDatabase) {
+        /**
+         * 创建[TallyBillStatDao.TableName]表
+         */
+        database.execSQL("CREATE TABLE IF NOT EXISTS `${TallyBillStatDao.TableName}` (`rid` INTEGER NOT NULL,`categoryId` TEXT NOT NULL, `time` INTEGER NOT NULL, `useCount` INTEGER NOT NULL DEFAULT 1,`type` INTEGER NOT NULL, PRIMARY KEY (`rid`))")
+        database.execSQL("CREATE INDEX IF NOT EXISTS `index_tally_bill_stat_categoryId_time` ON `${TallyBillStatDao.TableName}` (`categoryId`,`time`)")
+        database.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_tally_bill_stat_rid` ON `${TallyBillStatDao.TableName}` (`rid`)")
+    }
+
+}

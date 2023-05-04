@@ -17,11 +17,12 @@ import androidx.room.RoomDatabase
         TallyBillLabelDO::class,
         TallyAccountDO::class,
         TallyAccountTypeDO::class,
+        TallyBillStatDO::class,
     ],
     views = [
         // TallyMonthlyStatisticalDO::class
     ],
-    version = 6,
+    version = 7,
     exportSchema = false
 )
 abstract class TallyDatabase : RoomDatabase() {
@@ -38,4 +39,6 @@ abstract class TallyDatabase : RoomDatabase() {
     abstract fun tallyAccountDao(): TallyAccountDao
     abstract fun tallyAccountTypeDao(): TallyAccountTypeDao
     abstract fun tallyMonthlyStatisticalDao(): TallyMonthlyStatisticalDao
+
+    abstract fun tallBillStatDao(): TallyBillStatDao
 }

@@ -32,7 +32,6 @@ import com.xiaojinzi.support.ktx.nothing
 import com.xiaojinzi.tally.base.TallyRouterConfig
 import com.xiaojinzi.tally.base.service.setting.LanguageSettingDTO
 import com.xiaojinzi.tally.base.support.settingService
-import com.xiaojinzi.tally.base.support.tallyCommonService
 import com.xiaojinzi.tally.base.theme.body3
 import com.xiaojinzi.tally.base.view.CommonActionItemView
 import com.xiaojinzi.tally.base.view.CommonSwitchItemView
@@ -94,6 +93,11 @@ private fun SettingView() {
     val language by settingService.languageObservableDTO.collectAsState(
         initial = LanguageSettingDTO.FollowSystem
     )
+
+    val inferType by settingService.autoInferType.collectAsState(
+        initial = true
+    )
+
     Column(
         modifier = Modifier
             .padding(horizontal = 16.dp, vertical = 10.dp)
@@ -143,6 +147,13 @@ private fun SettingView() {
                     checked = isVibrateDuringInput
                 ) {
                     settingService.vibrateDuringInputObservableDTO.toggle()
+                }
+                CommonSwitchItemView(
+                    contentItem = StringItemDTO(nameRsd = R.string.res_str_infer_bill_type),
+                    descItem = StringItemDTO(nameRsd = R.string.res_str_infer_bill_type_tips),
+                    checked = inferType
+                ) {
+                    settingService.autoInferType.toggle()
                 }
             }
         }

@@ -19,9 +19,9 @@ import com.xiaojinzi.support.architecture.mvvm1.BaseUseCase
 import com.xiaojinzi.support.architecture.mvvm1.BaseUseCaseImpl
 import com.xiaojinzi.support.init.AppInstance
 import com.xiaojinzi.support.ktx.ErrorIgnoreContext
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.support.ktx.app
 import com.xiaojinzi.support.ktx.newUUid
-import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.TallyRouterConfig
 import com.xiaojinzi.tally.base.service.DialogConfirmResult
 import com.xiaojinzi.tally.base.service.datasource.*
@@ -409,6 +409,13 @@ class BillCreateUseCaseImpl(
     override val categoryInitDataObservableDTO = categoryInitData
         .valueStateFlow
         .map { cateId ->
+            if (cateId == null && rememberBillTypeService.autoInferType.value) {
+                val type = tabIndexInitData.value.index
+                rememberBillTypeService.getRecordByTime(type = type)?.apply {
+                    return@map tallyCategoryService.getTallyCategoryDetailById(id = uid)
+                }
+
+            }
             cateId?.run {
                 tallyCategoryService.getTallyCategoryDetailById(id = this)
             }
@@ -969,6 +976,13 @@ class BillCreateUseCaseImpl(
                                 labelIdList = labelIdList,
                                 imageUrlList = imageUrlList,
                             )
+                        //插入记录
+                        rememberBillTypeService.updateRecordBillType(
+                            categoryId = category!!.uid,
+                            time = (timeObservableDTO.value) ?: System.currentTimeMillis(),
+                            if (isSpending) 0 else 1
+                        )
+
                     }
                 }
                 // 对原始账单的报销类型进行调整
