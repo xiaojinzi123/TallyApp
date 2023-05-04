@@ -27,8 +27,8 @@ android {
 
     defaultConfig {
         applicationId "com.xiaojinzi.tally"
-        versionCode 15
-        versionName "1.2.11"
+        versionCode 16
+        versionName "1.2.12"
     }
 
     buildTypes {
