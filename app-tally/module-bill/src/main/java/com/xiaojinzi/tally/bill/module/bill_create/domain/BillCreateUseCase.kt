@@ -410,11 +410,13 @@ class BillCreateUseCaseImpl(
         .valueStateFlow
         .map { cateId ->
             if (cateId == null && rememberBillTypeService.autoInferType.value) {
-                val type = tabIndexInitData.value.index
-                rememberBillTypeService.getRecordByTime(type = type)?.apply {
-                    return@map tallyCategoryService.getTallyCategoryDetailById(id = uid)
+                val type = tabIndexInitData.value
+                //新创建的
+                if (type is BillCreateTabType) {
+                    rememberBillTypeService.getRecordByTime(type = type.index)?.apply {
+                        return@map tallyCategoryService.getTallyCategoryDetailById(id = uid)
+                    }
                 }
-
             }
             cateId?.run {
                 tallyCategoryService.getTallyCategoryDetailById(id = this)
@@ -626,9 +628,10 @@ class BillCreateUseCaseImpl(
     ) {
         billUsageInitData.value = usage
         costTypeInitData.value = costType
-        categoryInitData.value = categoryId
+
         isMustSelectAccountInitData.value = isMustSelectAccount
         if (billId == null) {
+            categoryInitData.value = categoryId
             tabIndexInitData.value = tabIndex
             timeObservableDTO.value = time
             costUseCase.costAppend(
@@ -1245,6 +1248,7 @@ class BillCreateUseCaseImpl(
             .filterNotNull()
             .take(1)
             .onEach { billDetail ->
+                categoryInitData.value = billDetail.categoryWithGroup?.category?.uid
                 timeObservableDTO.value = billDetail.bill.time
                 noteStrObservableDTO.value = billDetail.bill.note
                 reimburseTypeObservableDTO.value = billDetail.bill.reimburseType
