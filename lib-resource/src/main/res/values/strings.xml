@@ -221,6 +221,9 @@
     <string name="res_str_yearly_spending">Yearly spending</string>
     <string name="res_str_yearly_income">Yearly income</string>
     <string name="res_str_yearly_balance">Yearly balance</string>
+    <string name="res_str_monthly_spending">Monthly spending</string>
+    <string name="res_str_monthly_income">Monthly income</string>
+    <string name="res_str_monthly_balance">Monthly balance</string>
     <string name="res_str_account">Account</string>
     <string name="res_str_new_account">New account</string>
     <string name="res_str_update_account">Update account</string>
