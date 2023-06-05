@@ -3,7 +3,7 @@
 
 ## 前言
 
-项目实施了组件化. 技术由 [Component](https://github.com/xiaojinzi123/Component) 支持
+项目实施了组件化. 技术由 [Component](https://github.com/xiaojinzi123/Component) 和 [KComponent](https://github.com/xiaojinzi123/KComponent) 支持
 
 此 App 是线上运行的一个 App. 扣去了隐私的数据部分. 代码会隔一段时间更新一回. 不会随着线上的版本实时更新. 还望理解!!!
 
