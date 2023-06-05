@@ -7,6 +7,7 @@ import com.xiaojinzi.component.withHostAndPath
 import com.xiaojinzi.module.base.RouterConfig
 import com.xiaojinzi.module.base.support.flow.MutableSharedStateFlow
 import com.xiaojinzi.module.base.support.getMonthByTimeStamp
+import com.xiaojinzi.module.base.support.getMonthInterval
 import com.xiaojinzi.module.base.support.getYearByTimeStamp
 import com.xiaojinzi.support.annotation.HotObservable
 import com.xiaojinzi.support.annotation.ViewModelLayer
@@ -14,15 +15,18 @@ import com.xiaojinzi.support.architecture.mvvm1.BaseUseCase
 import com.xiaojinzi.support.architecture.mvvm1.BaseUseCaseImpl
 import com.xiaojinzi.support.ktx.ErrorIgnoreContext
 import com.xiaojinzi.tally.base.TallyRouterConfig
+import com.xiaojinzi.tally.base.service.datasource.BillQueryConditionDTO
+import com.xiaojinzi.tally.base.service.datasource.CostTypeDTO
 import com.xiaojinzi.tally.base.service.datasource.TallyBillDetailDTO
 import com.xiaojinzi.tally.base.service.datasource.TallyBillTypeDTO
 import com.xiaojinzi.tally.base.support.tallyBillService
+import com.xiaojinzi.tally.base.support.tallyCostAdapter
 import com.xiaojinzi.tally.base.support.tallyService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import java.util.*
+import java.util.Calendar
 
 @ViewModelLayer
 interface MonthlyStatisticalUseCase : BaseUseCase {
@@ -44,6 +48,15 @@ interface MonthlyStatisticalUseCase : BaseUseCase {
      */
     @HotObservable(HotObservable.Pattern.BEHAVIOR, isShared = true)
     val selectMonthBillDetailListObservableDTO: Flow<List<TallyBillDetailDTO>>
+
+    /**
+     * 选择月后的月度概况
+     * 第一个值: 支出
+     * 第二个值: 收入
+     * 第三个值: 结余
+     */
+    @HotObservable(HotObservable.Pattern.BEHAVIOR, isShared = true)
+    val selectMonthReportObservableDTO: Flow<Triple<Float, Float, Float>>
 
     /**
      * 去当前选择的月份的展示界面
@@ -91,6 +104,37 @@ class MonthlyStatisticalUseCaseImpl : BaseUseCaseImpl(), MonthlyStatisticalUseCa
                     !it.bill.isNotIncludedInIncomeAndExpenditure && it.bill.type == TallyBillTypeDTO.Normal
                 }
         }
+
+    override val selectMonthReportObservableDTO: Flow<Triple<Float, Float, Float>> = combine(
+        selectMonthObservableDTO, tallyService.dataBaseChangedObservable,
+    ) { month, _ ->
+        month.run {
+            var cal = Calendar.getInstance()
+            cal.set(Calendar.MONTH, month)
+            cal.timeInMillis
+        }.run {
+            val (startTime, endTime) = getMonthInterval(timeStamp = this)
+            var first = tallyBillService.getNormalBillCostAdjustByCondition(
+                condition = BillQueryConditionDTO(
+                    costType = CostTypeDTO.Spending,
+                    startTime = startTime,
+                    endTime = endTime,
+                )
+            )
+            var second = tallyBillService.getNormalBillCostAdjustByCondition(
+                condition = BillQueryConditionDTO(
+                    costType = CostTypeDTO.Income,
+                    startTime = startTime,
+                    endTime = endTime,
+                )
+            )
+            Triple(
+                first.tallyCostAdapter(),
+                second.tallyCostAdapter(),
+                (first + second).tallyCostAdapter()
+            )
+        }
+    }
 
     override fun toMonthlyBillView(context: Context) {
         context

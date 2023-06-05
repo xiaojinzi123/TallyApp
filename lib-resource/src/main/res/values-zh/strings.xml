@@ -220,6 +220,9 @@
     <string name="res_str_yearly_spending">年支出</string>
     <string name="res_str_yearly_income">年收入</string>
     <string name="res_str_yearly_balance">年结余</string>
+    <string name="res_str_monthly_spending">月支出</string>
+    <string name="res_str_monthly_income">月收入</string>
+    <string name="res_str_monthly_balance">月结余</string>
     <string name="res_str_account">账户</string>
     <string name="res_str_new_account">新建账户</string>
     <string name="res_str_update_account">更新账户</string>
@@ -348,5 +351,8 @@
     <string name="res_str_desc9">上一个月没用完的预算, 会自动累加到下个月, 以此类推</string>
     <string name="res_str_desc10">恭喜第一次记账成功</string>
     <!--描述的比较难翻译的文本 end-->
+
+    <string name="res_str_infer_bill_type">自动推断账单类别</string>
+    <string name="res_str_infer_bill_type_tips">根据历史记录推断账单类型</string>
 
 </resources>

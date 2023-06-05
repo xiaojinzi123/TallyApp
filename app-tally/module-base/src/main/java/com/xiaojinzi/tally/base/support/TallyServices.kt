@@ -64,3 +64,6 @@ val settingService: SettingService
 val autoBillService: AutoBillService?
     get() = ServiceManager.get(AutoBillService::class.java)
 
+val rememberBillTypeService: RememberBillTypeService
+    get() = ServiceManager.requiredGet(RememberBillTypeService::class.java)
+

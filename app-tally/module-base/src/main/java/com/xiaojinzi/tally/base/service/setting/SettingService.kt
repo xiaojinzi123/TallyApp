@@ -7,6 +7,7 @@ import com.xiaojinzi.module.base.support.flow.MutableSharedStateFlow
 import com.xiaojinzi.support.ktx.AppScope
 import com.xiaojinzi.tally.base.support.autoBillSettingService
 import com.xiaojinzi.tally.base.support.billSettingService
+import com.xiaojinzi.tally.base.support.rememberBillTypeService
 import com.xiaojinzi.tally.base.support.statisticalSettingService
 import com.xiaojinzi.tally.base.support.systemSettingService
 import kotlinx.coroutines.flow.Flow
@@ -17,7 +18,7 @@ import kotlinx.coroutines.flow.onEach
  * 设置相关的 Service
  */
 interface SettingService : SystemSettingService, StatisticalSettingService, BillSettingService,
-    AutoBillSettingService {
+    AutoBillSettingService, RememberBillTypeService {
 
     val testObservableDTO: Flow<String?>
 
@@ -28,7 +29,8 @@ class SettingServiceImpl : SettingService,
     SystemSettingService by systemSettingService,
     StatisticalSettingService by statisticalSettingService,
     BillSettingService by billSettingService,
-    AutoBillSettingService by autoBillSettingService {
+    AutoBillSettingService by autoBillSettingService,
+    RememberBillTypeService by rememberBillTypeService {
 
     override val testObservableDTO =
         MutableSharedStateFlow<String?>(initValue = null).dbPersistence(key = "test", def = "111")

@@ -11,4 +11,11 @@ object DBCommonKeys {
     const val dataInitBook = "dataInitBook"
     const val dataInitCategory = "dataInitCategory"
 
+
+    /**
+     * 根据上次记录和当前时间记录自动推断账单类型
+     * Auto infer bill type
+     */
+    const val autoInferBillType = "autoInferBillType"
+
 }

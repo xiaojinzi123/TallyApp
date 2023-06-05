@@ -5,15 +5,67 @@ import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.toArgb
 import com.xiaojinzi.lib.res.dto.AutoBillSourceAppType
 import com.xiaojinzi.lib.res.dto.AutoBillSourceViewType
-import com.xiaojinzi.module.base.support.ResData
 import com.xiaojinzi.module.base.bean.StringItemDTO
+import com.xiaojinzi.module.base.support.ResData
 import com.xiaojinzi.module.base.support.notSupportError
-import com.xiaojinzi.tally.base.service.datasource.*
+import com.xiaojinzi.tally.base.service.datasource.ReimburseType
+import com.xiaojinzi.tally.base.service.datasource.TallyAccountDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyAccountInsertDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyAccountTypeDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyAccountTypeInsertDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyAccountWithTypeDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillAutoSourceAppDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillAutoSourceAppDetailDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillAutoSourceAppInsertDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillAutoSourceViewDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillAutoSourceViewDetailDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillAutoSourceViewInsertDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillDetailDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillInsertDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillLabelDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillLabelInsertDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillTypeDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBillUsageDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBookDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBookInsertDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBudgetDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBudgetInsertDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyBudgetService
+import com.xiaojinzi.tally.base.service.datasource.TallyCategoryDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyCategoryGroupDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyCategoryGroupInsertDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyCategoryGroupTypeDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyCategoryInsertDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyCategoryWithGroupDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyImageDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyImageInsertDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyLabelDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyLabelInsertDTO
+import com.xiaojinzi.tally.base.service.datasource.TallyLabelService
+import com.xiaojinzi.tally.base.service.setting.TallyBillStatDTO
 import com.xiaojinzi.tally.base.support.tallyImageService
-import com.xiaojinzi.tally.datasource.db.*
+import com.xiaojinzi.tally.datasource.db.TallyAccountDO
+import com.xiaojinzi.tally.datasource.db.TallyAccountTypeDO
+import com.xiaojinzi.tally.datasource.db.TallyAccountWithTypeDO
+import com.xiaojinzi.tally.datasource.db.TallyBillAutoSourceAppDO
+import com.xiaojinzi.tally.datasource.db.TallyBillAutoSourceAppDetailDO
+import com.xiaojinzi.tally.datasource.db.TallyBillAutoSourceViewDO
+import com.xiaojinzi.tally.datasource.db.TallyBillAutoSourceViewDetailDO
+import com.xiaojinzi.tally.datasource.db.TallyBillDO
+import com.xiaojinzi.tally.datasource.db.TallyBillDetailDO
+import com.xiaojinzi.tally.datasource.db.TallyBillLabelDO
+import com.xiaojinzi.tally.datasource.db.TallyBillStatDO
+import com.xiaojinzi.tally.datasource.db.TallyBookDO
+import com.xiaojinzi.tally.datasource.db.TallyBudgetDO
+import com.xiaojinzi.tally.datasource.db.TallyCategoryDO
+import com.xiaojinzi.tally.datasource.db.TallyCategoryGroupDO
+import com.xiaojinzi.tally.datasource.db.TallyCategoryWithGroupDO
+import com.xiaojinzi.tally.datasource.db.TallyImageDO
+import com.xiaojinzi.tally.datasource.db.TallyLabelDO
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.util.*
+import java.util.Date
 
 /**
  * 两者一定有一个不是为空的
@@ -452,6 +504,26 @@ fun TallyBillLabelDO.toTallyBillLabelDTO(): TallyBillLabelDTO {
         uid = this.uid,
         billId = this.billId,
         labelId = this.labelId,
+    )
+}
+
+fun TallyBillStatDO.toTallyBillStatDTO(): TallyBillStatDTO {
+    return TallyBillStatDTO(
+        id = this.rid,
+        categoryId = this.categoryId,
+        time = this.time,
+        useCount = this.useCount,
+        type = this.type,
+    )
+}
+
+fun TallyBillStatDTO.toTallBillStatDO(): TallyBillStatDO {
+    return TallyBillStatDO(
+        rid = this.id,
+        categoryId = this.categoryId,
+        time = this.time,
+        useCount = this.useCount,
+        type = this.type,
     )
 }
 

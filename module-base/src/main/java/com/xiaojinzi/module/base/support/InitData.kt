@@ -259,6 +259,7 @@ object ResData {
         R.string.res_str_alipay,
         R.string.res_str_wechat,
         R.string.res_str_ysf,
+        R.string.res_str_infer_bill_type,
     )
 
     fun getIconRsdIndex(@DrawableRes rsdId: Int): Int {

@@ -19,9 +19,9 @@ import com.xiaojinzi.support.architecture.mvvm1.BaseUseCase
 import com.xiaojinzi.support.architecture.mvvm1.BaseUseCaseImpl
 import com.xiaojinzi.support.init.AppInstance
 import com.xiaojinzi.support.ktx.ErrorIgnoreContext
+import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.support.ktx.app
 import com.xiaojinzi.support.ktx.newUUid
-import com.xiaojinzi.support.ktx.LogSupport
 import com.xiaojinzi.tally.base.TallyRouterConfig
 import com.xiaojinzi.tally.base.service.DialogConfirmResult
 import com.xiaojinzi.tally.base.service.datasource.*
@@ -409,6 +409,15 @@ class BillCreateUseCaseImpl(
     override val categoryInitDataObservableDTO = categoryInitData
         .valueStateFlow
         .map { cateId ->
+            if (cateId == null && rememberBillTypeService.autoInferType.value) {
+                val type = tabIndexInitData.value
+                //新创建的
+                if (type is BillCreateTabType) {
+                    rememberBillTypeService.getRecordByTime(type = type.index)?.apply {
+                        return@map tallyCategoryService.getTallyCategoryDetailById(id = uid)
+                    }
+                }
+            }
             cateId?.run {
                 tallyCategoryService.getTallyCategoryDetailById(id = this)
             }
@@ -619,9 +628,10 @@ class BillCreateUseCaseImpl(
     ) {
         billUsageInitData.value = usage
         costTypeInitData.value = costType
-        categoryInitData.value = categoryId
+
         isMustSelectAccountInitData.value = isMustSelectAccount
         if (billId == null) {
+            categoryInitData.value = categoryId
             tabIndexInitData.value = tabIndex
             timeObservableDTO.value = time
             costUseCase.costAppend(
@@ -969,6 +979,13 @@ class BillCreateUseCaseImpl(
                                 labelIdList = labelIdList,
                                 imageUrlList = imageUrlList,
                             )
+                        //插入记录
+                        rememberBillTypeService.updateRecordBillType(
+                            categoryId = category!!.uid,
+                            time = (timeObservableDTO.value) ?: System.currentTimeMillis(),
+                            if (isSpending) 0 else 1
+                        )
+
                     }
                 }
                 // 对原始账单的报销类型进行调整
@@ -1231,6 +1248,7 @@ class BillCreateUseCaseImpl(
             .filterNotNull()
             .take(1)
             .onEach { billDetail ->
+                categoryInitData.value = billDetail.categoryWithGroup?.category?.uid
                 timeObservableDTO.value = billDetail.bill.time
                 noteStrObservableDTO.value = billDetail.bill.note
                 reimburseTypeObservableDTO.value = billDetail.bill.reimburseType
