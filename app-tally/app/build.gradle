@@ -47,15 +47,16 @@ android {
     productFlavors {
         normal {
             dimension 'package'
-            manifestPlaceholders = [appName:"@string/res_tally_app_name"]
+            manifestPlaceholders = [appName: "@string/res_tally_app_name"]
         }
         self {
             dimension 'package'
             applicationIdSuffix ".self"
-            manifestPlaceholders = [appName:"@string/res_tally_app_name_self"]
+            manifestPlaceholders = [appName: "@string/res_tally_app_name_self"]
         }
         // ----------------------- 产品渠道 start-----------------------
         kuan {
+            getIsDefault().set(true)
             dimension 'product'
             buildConfigField "int", "imageType", "1"
             buildConfigField "boolean", "autoBill", "true"
