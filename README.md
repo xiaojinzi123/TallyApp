@@ -1,3 +1,8 @@
+## 一刻记账
+时隔两年, 楼主还是不死心. 这次重新做了一个商业的记账软件. 
+支持了更多的功能, UI 更美观. 功能更强大. 更有 AI 功能, 欢迎使用
+https://yike.icxj.cn/
+
 ## 更新日志
 [changelog](./app-tally/changelog.md)
 
