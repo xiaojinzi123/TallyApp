@@ -3,6 +3,9 @@
 支持了更多的功能, UI 更美观. 功能更强大. 更有 AI 功能, 欢迎使用
 https://yike.icxj.cn/
 
+另外也有新的开源版本. [一刻记账开源版](https://github.com/xiaojinzi123/yike-app)
+UI 和 功能更完善
+
 ## 更新日志
 [changelog](./app-tally/changelog.md)
 
